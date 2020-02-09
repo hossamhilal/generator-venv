@@ -1,7 +1,7 @@
 {
   "name": "generator-venv",
   "version": "1.0.0",
-  "description": "vue generator",
+  "description": "a generator to create vue environment ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
