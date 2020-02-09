@@ -1,0 +1,34 @@
+{
+  "name": "generator-venv",
+  "version": "1.0.0",
+  "description": "vue generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "generator",
+    "vue",
+    "router",
+    "vuex",
+    "yeoman",
+    "vue",
+    "js",
+    "js",
+    "components",
+    "vue",
+    "project"
+  ],
+  "author": "Hossam Hilal",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "mkdirp": "^1.0.3",
+    "yeoman-generator": "^4.5.0",
+    "yosay": "^2.0.2",
+    "grunt": "^1.0.4",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {}
+}
