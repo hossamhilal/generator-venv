@@ -11,6 +11,11 @@ npm i generator-venv
 ```
 
 ## Usage
+install yeoman 
+
+```bash
+npm install -g yo
+```
 
 ```bash
 yo generator-venv
