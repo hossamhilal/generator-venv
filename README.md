@@ -35,7 +35,15 @@ npm run build
 ```
 
 ## Author
-Github [Hossam Hilal] (https://github.com/hossamhilal)
+Github    : [Hossam Hilal] (https://github.com/hossamhilal)
+Npm       : [Hossam Hilal] (https://www.npmjs.com/~hossam_hilal)
+Linkedin  : [Hossam Hilal] (https://www.linkedin.com/in/hossam-hilal)
+Facebook  : [Hossam Hilal] (https://www.facebook.com/hossam.hilal0)
+Behance   : [Hossam Hilal] (https://www.behance.net/hossam-hilal)
+Email     : [Hossam Hilal] (hossam.hilal0@gmail.com)
+
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
