@@ -16,6 +16,7 @@ install yeoman
 ```bash
 npm install -g yo
 ```
+Then install Venv Generator
 
 ```bash
 yo generator-venv
