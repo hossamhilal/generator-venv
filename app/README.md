@@ -11,6 +11,12 @@ npm i generator-venv
 ```
 
 ## Usage
+install yeoman 
+
+```bash
+npm install -g yo
+```
+Then install Venv Generator <br />
 
 ```bash
 yo generator-venv
@@ -29,7 +35,15 @@ npm run build
 ```
 
 ## Author
-Github [Hossam Hilal] (https://github.com/hossamhilal)
+Github    : [Hossam Hilal] (https://github.com/hossamhilal) <br />
+Npm       : [Hossam Hilal] (https://www.npmjs.com/~hossam_hilal) <br />
+Linkedin  : [Hossam Hilal] (https://www.linkedin.com/in/hossam-hilal) <br />
+Facebook  : [Hossam Hilal] (https://www.facebook.com/hossam.hilal0) <br />
+Behance   : [Hossam Hilal] (https://www.behance.net/hossam-hilal) <br />
+Email     : [Hossam Hilal] (hossam.hilal0@gmail.com) <br />
+
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

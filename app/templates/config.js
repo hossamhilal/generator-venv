@@ -41,10 +41,6 @@ module.exports = {
       output: '.eslintrc.js'
     },
     {
-      input: 'babel.config.js',
-      output: 'babel.config.js'
-    },
-    {
       input: 'jest.config.js',
       output: 'jest.config.js'
     },

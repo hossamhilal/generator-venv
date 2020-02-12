@@ -1,49 +1,59 @@
 'use strict';
 
 var Generator = require('yeoman-generator'), // use yeoman 
-    mkdirp = require('mkdirp'), // use to create folders 
-    yosay = require('yosay'), // use it to create awesome message to user insted of this.log()
-    chalk = require('chalk') , // use it to modify and style yosay message to user
-    config = require('./templates/config');
+    mkdirp    = require('mkdirp'), // use to create folders 
+    yosay     = require('yosay'), // use it to create awesome message to user insted of this.log()
+    chalk     = require('chalk') ; // use it to modify and style yosay message to user
 
-module.exports = class extends Generator {
-    
+module.exports = class extends Generator {   
     //answers;
     _createPrjectFileSystem() {
-        var destRoot = this.destinationRoot() ,         // Project Folder   =>  '~/project'
-            app = destRoot + '/app',                // App Folder       =>  '~/project/app'
-            template = this.sourceRoot();            // Template Folder  =>  '~/project/app/template 
+        var destRoot = this.destinationRoot() ;         // Project Folder   =>  '~/project'
 
         // create Folders
-        mkdirp(destRoot + '/src'); // create src folder
-        mkdirp(destRoot + '/src/assets'); // Create assets Folder
-        mkdirp(destRoot + '/src/assets/styles'); // Create styles Folder
-        mkdirp(destRoot + '/src/assets/fonts'); // Create fonts Folder 
-        mkdirp(destRoot + '/src/assets/imgs'); // Create Imgs Folder
-        mkdirp(destRoot + '/src/assets/scripts'); // Create Scripts Folder
-        mkdirp(destRoot + '/public'); // Create Pubilc Folder
-        mkdirp(destRoot + '/src/components'); // Create assets Folder
+        mkdirp(destRoot + '/src');                       // create Src     Folder
+        mkdirp(destRoot + '/src/assets');                // Create Assets  Folder
+        mkdirp(destRoot + '/src/assets/styles');         // Create Styles  Folder
+        mkdirp(destRoot + '/src/assets/fonts');          // Create Fonts   Folder 
+        mkdirp(destRoot + '/src/assets/imgs');           // Create Imgs    Folder
+        mkdirp(destRoot + '/src/assets/scripts');        // Create Scripts Folder
+        mkdirp(destRoot + '/public');                    // Create Pubilc  Folder
+        mkdirp(destRoot + '/src/components');            // Create Assets  Folder
 
         // Context for all values from user
         var templateContext = {                     
-            appname: this.appname,
-            appdescription: this.appdescription,
-            appversion: this.appversion,
-            appauthor: this.appauthor,
-            appemail: this.appemail,
-            applicense: this.applicense,
-            includeSass: this.includeSass,
-            includeBootstrap: this.includeBootstrap,
-            includeJQuery: this.includeJQuery,
-            includeModernizr: this.includeModernizr,
-            includeAnalytics: this.includeAnalytics ,
-            includeRouter : this.includeRouter ,
-            includeVuex : this.includeVuex ,
-            includeTypeScript : this.includeTypeScript ,
-            includeAxios : this.includeAxios
+            appname: this.appname,                          // App Name
+            appdescription: this.appdescription,            // App Description 
+            appversion: this.appversion,                    // App Version 
+            appauthor: this.appauthor,                      // App Author
+            appemail: this.appemail,                        // Author Email 
+            applicense: this.applicense,                    // App License 
+            includeSass: this.includeSass,                  // Sass 
+            includeBootstrap: this.includeBootstrap,        // Bootstrap
+            includeJQuery: this.includeJQuery,              // JQuery 
+            includeModernizr: this.includeModernizr,        // Modernizer 
+            includeAnalytics: this.includeAnalytics ,       // Google Analytics 
+            includeBabel : this.includeBabel,               // Babel 
+            includeRouter : this.includeRouter ,            // Router 
+            includeVuex : this.includeVuex ,                // Vuex 
+            includeTypeScript : this.includeTypeScript ,    // TypeScript
+            includeAxios : this.includeAxios                // Axios 
         };
 
+        // Install Packages From Packes.json 
         this.npmInstall();
+
+        this.fs.copy(
+            this.templatePath('config.js'),
+            this.destinationPath('config.js')
+        );
+
+        this.fs.copyTpl(this.templatePath('fullPackage/**'),this.destinationPath('fullPackage'),templateContext );
+
+        // this.fs.copy(
+        //     this.templatePath('fullPackage/config.js'),
+        //     this.destinationPath('fullPackage/config.js')
+        // );
 
         // Copy Files Function 
         const copy = (input, output) => {
@@ -69,7 +79,7 @@ module.exports = class extends Generator {
             copy(file.input, file.output);
         });
 
-
+        // Modernizer 
         if (this.includeModernizr) {
             copy('modernizr.json', 'modernizr.json');
         }
@@ -134,8 +144,13 @@ module.exports = class extends Generator {
             {
                 type: 'checkbox',
                 name: 'library',
-                message: 'Which additional library would you like to include?',
-                choices: [{
+                message: 'Check the features needed for your project:',
+                choices: [
+                    {
+                        name: 'Babel',
+                        value: 'includeBabel',
+                        checked: true
+                    },{
                         name: 'Vuex',
                         value: 'includeVuex',
                         checked: false
@@ -143,7 +158,7 @@ module.exports = class extends Generator {
                     {
                         name: 'Router',
                         value: 'includeRouter',
-                        checked: true
+                        checked: false
                     },
                     {
                         name: 'Axios',
@@ -183,6 +198,7 @@ module.exports = class extends Generator {
         // Include Libraries
         const Libraries = answers.library;
         const hasLibraries = lib => Libraries && Libraries.includes(lib);
+        this.includeBabel = hasLibraries('includeBabel');
         this.includeVuex = hasLibraries('includeVuex');
         this.includeRouter = hasLibraries('includeRouter');
         this.includeAxios = hasLibraries('includeAxios');
@@ -248,6 +264,21 @@ module.exports = class extends Generator {
     installLibraries () {
         var destRoot = this.destinationRoot() ,
             template = this.sourceRoot(); 
+
+        // Install Babel 
+        if (this.includeBabel) {
+            this.npmInstall(['babel-eslint'], { 'save-dev': true });       
+            // this.fs.copy(template + '/babel.config.js' , destRoot +'/babel.config.js');  
+
+            this.fs.copyTpl(
+                this.templatePath('babel.config.js'),
+                this.destinationPath('babel.config.js')
+            );
+
+            // this.log('Babel installed')
+        }
+
+        
 
         // Install Vuex 
         if (this.includeVuex) {
