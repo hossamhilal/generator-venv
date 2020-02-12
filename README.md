@@ -35,7 +35,7 @@ npm run build
 ```
 
 ## Author
-Github &nbsp; &nbsp; &nbsp; &nbsp;  : &nbsp; https://github.com/hossamhilal <br />
+Github &nbsp; &nbsp; &nbsp; &nbsp;  : &nbsp; [Hossam Hilal](https://github.com/hossamhilal) <br />
 Npm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; https://www.npmjs.com/~hossam_hilal <br />
 Linkedin &nbsp; &nbsp;  &nbsp;  : &nbsp; https://www.linkedin.com/in/hossam-hilal <br />
 Facebook &nbsp; &nbsp;  : &nbsp; https://www.facebook.com/hossam.hilal0 <br />
