@@ -40,7 +40,7 @@ Npm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; :&nbsp; [Hossam Hilal] (https://ww
 Linkedin &nbsp; &nbsp;  &nbsp;  :&nbsp; [Hossam Hilal] (https://www.linkedin.com/in/hossam-hilal) <br />
 Facebook &nbsp; &nbsp;  :&nbsp; [Hossam Hilal] (https://www.facebook.com/hossam.hilal0) <br />
 Behance &nbsp; &nbsp; &nbsp; :&nbsp; [Hossam Hilal] (https://www.behance.net/hossam-hilal) <br />
-Email  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  :&nbsp;[Hossam Hilal] (hossam.hilal0@gmail.com) <br />
+Email  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:&nbsp;[Hossam Hilal] (hossam.hilal0@gmail.com) <br />
 
 
 
