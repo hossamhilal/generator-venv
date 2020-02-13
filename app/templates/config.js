@@ -1,6 +1,10 @@
 module.exports = {
   filesToCopy: [
     {
+      input: '.gitignore',
+      output: '.gitignore'
+    },
+    {
       input: '.editorconfig',
       output: '.editorconfig'
     },
@@ -9,32 +13,12 @@ module.exports = {
       output: '.jshintrc'
     },
     {
-      input: 'humans.txt',
-      output: 'src/humans.txt'
-    },
-    {
-      input: 'robots.txt',
-      output: 'src/robots.txt'
-    },
-    {
-      input: 'robots.txt',
-      output: 'src/robots.txt'
-    },
-    {
       input: 'logo.png',
       output: 'src/assets/imgs/logo.png'
     },
     {
       input: 'favicon.ico',
       output: 'public/favicon.ico'
-    },
-    {
-      input: 'config.js',
-      output: 'src/config.js'
-    },
-    {
-      input: '.gitignore',
-      output: '.gitignore'
     },
     {
       input: '.eslintrc.js',
@@ -51,16 +35,8 @@ module.exports = {
   ],
   filesToRender: [
     {
-      input: 'gulpfile.js',
-      output: 'gulpfile.js'
-    },
-    {
       input: 'README.md',
       output: 'README.md'
-    },
-    {
-      input: 'CONTRIBUTING.md',
-      output: 'CONTRIBUTING.md'
     },
     {
       input: 'package.json',

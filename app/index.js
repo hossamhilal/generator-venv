@@ -3,14 +3,14 @@
 var Generator = require('yeoman-generator'), // use yeoman 
     mkdirp    = require('mkdirp'), // use to create folders 
     yosay     = require('yosay'), // use it to create awesome message to user insted of this.log()
-    chalk     = require('chalk') ; // use it to modify and style yosay message to user
+    chalk     = require('chalk'), // use it to modify and style yosay message to user
+    config    = require('./templates/config');
 
 module.exports = class extends Generator {   
-    //answers;
-    _createPrjectFileSystem() {
-        var destRoot = this.destinationRoot() ;         // Project Folder   =>  '~/project'
 
-        // create Folders
+    // create Folders
+    _createDirectors() {      
+        var destRoot = this.destinationRoot() ;          // Project Folder   =>  '~/project'  
         mkdirp(destRoot + '/src');                       // create Src     Folder
         mkdirp(destRoot + '/src/assets');                // Create Assets  Folder
         mkdirp(destRoot + '/src/assets/styles');         // Create Styles  Folder
@@ -19,6 +19,15 @@ module.exports = class extends Generator {
         mkdirp(destRoot + '/src/assets/scripts');        // Create Scripts Folder
         mkdirp(destRoot + '/public');                    // Create Pubilc  Folder
         mkdirp(destRoot + '/src/components');            // Create Assets  Folder
+    }
+
+    // Install Packages From Packes.json 
+    _installNpm() {    
+        this.npmInstall();
+    }
+
+    // Create File System Function ( Copy , CopyTpl)
+    _createPrjectFileSystem() {
 
         // Context for all values from user
         var templateContext = {                     
@@ -39,21 +48,6 @@ module.exports = class extends Generator {
             includeTypeScript : this.includeTypeScript ,    // TypeScript
             includeAxios : this.includeAxios                // Axios 
         };
-
-        // Install Packages From Packes.json 
-        this.npmInstall();
-
-        this.fs.copy(
-            this.templatePath('config.js'),
-            this.destinationPath('config.js')
-        );
-
-        this.fs.copyTpl(this.templatePath('fullPackage/**'),this.destinationPath('fullPackage'),templateContext );
-
-        // this.fs.copy(
-        //     this.templatePath('fullPackage/config.js'),
-        //     this.destinationPath('fullPackage/config.js')
-        // );
 
         // Copy Files Function 
         const copy = (input, output) => {
@@ -77,12 +71,7 @@ module.exports = class extends Generator {
         // Call Copy Files
         config.filesToCopy.forEach(file => {
             copy(file.input, file.output);
-        });
-
-        // Modernizer 
-        if (this.includeModernizr) {
-            copy('modernizr.json', 'modernizr.json');
-        }
+        });    
     }
 
     // List Of Questions For User 
@@ -176,7 +165,7 @@ module.exports = class extends Generator {
         return prompts;
     }
 
-    // Recieve Answers From User 
+    // Declare User Answers In Vars
     _saveAnswers(answers, callback) {
         // User Info
         this.appname = answers.name; // Name 
@@ -208,7 +197,7 @@ module.exports = class extends Generator {
         callback(); 
     }
 
-    // init
+    // Initializing Yeoman
     initializing() {
         // Message 
         var message = chalk.yellow('Welcome To Yo ') + 
@@ -234,17 +223,15 @@ module.exports = class extends Generator {
 
     // Writing Process
     writing() {
-        // use writing for order piriorty of functions
+        this._installNpm();
+        this._createDirectors();
         this._createPrjectFileSystem();
-    }
-
-    // Install Independencies from package.json File 
-    install() {
-        this.npmInstall();
     }
 
     // Install Packages According To User Option 
     installPackages() {
+        this.npmInstall();
+
         // Install Bootstrap And Popper 
         if (this.includeBootstrap) {
             this.npmInstall(['bootstrap', 'popper.js'], { 'save-dev': true });
@@ -259,6 +246,14 @@ module.exports = class extends Generator {
         if (this.includeBootstrap || this.includeModernizr) { 
             this.npmInstall(['modernizr'], { 'save-dev': true });
         }  
+
+        // Modernizer 
+        if (this.includeModernizr) {
+            this.fs.copyTpl(
+                this.templatePath('modernizr.json'),
+                this.destinationPath('modernizr.json')
+            );
+        }
     }
 
     installLibraries () {
@@ -268,17 +263,9 @@ module.exports = class extends Generator {
         // Install Babel 
         if (this.includeBabel) {
             this.npmInstall(['babel-eslint'], { 'save-dev': true });       
-            // this.fs.copy(template + '/babel.config.js' , destRoot +'/babel.config.js');  
-
-            this.fs.copyTpl(
-                this.templatePath('babel.config.js'),
-                this.destinationPath('babel.config.js')
-            );
-
-            // this.log('Babel installed')
+            this.fs.copy(template + '/babel.config.js' , destRoot +'/babel.config.js');  
+            this.log('Babel installed')
         }
-
-        
 
         // Install Vuex 
         if (this.includeVuex) {

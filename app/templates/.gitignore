@@ -1,13 +1,6 @@
-
-node_modules
-
-# compiled output
-/src
-/.tmp
-
-# System Files
 .DS_Store
-Thumbs.db
+node_modules
+/dist
 
 # local env files
 .env.local

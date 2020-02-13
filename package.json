@@ -1,34 +1,50 @@
 {
   "name": "generator-venv",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "a generator to create vue environment ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "vue",
     "generator",
     "vue",
     "router",
     "vuex",
     "yeoman",
-    "vue",
-    "js",
+    "axios",
     "js",
     "components",
-    "vue",
-    "project"
+    "yeoman-generator",
+    "typescript",
+    "project",
+    "webpack",
+    "gulp",
+    "modernizer",
+    "jest",
+    "babel"
   ],
   "author": "Hossam Hilal",
+  "website": "https://github.com/hossamhilal/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hossamhilal/generator-venv"
+  },
   "license": "ISC",
   "dependencies": {
     "chalk": "^3.0.0",
-    "mkdirp": "^1.0.3",
-    "yeoman-generator": "^4.5.0",
-    "yosay": "^2.0.2",
     "grunt": "^1.0.4",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "mkdirp": "^1.0.3",
+    "npm": "^6.13.7",
+    "yeoman-generator": "^4.5.0",
+    "yosay": "^2.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "files": [
+    "app" ,
+    "*",
+    "app/*",
+    "app/**/*"
+  ]
 }

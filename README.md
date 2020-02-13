@@ -35,12 +35,12 @@ npm run build
 ```
 
 ## Author
-Github &nbsp; &nbsp; &nbsp; : [Hossam Hilal] (https://github.com/hossamhilal) <br />
-Npm  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; : [Hossam Hilal] (https://www.npmjs.com/~hossam_hilal) <br />
-Linkedin  : [Hossam Hilal] (https://www.linkedin.com/in/hossam-hilal) <br />
-Facebook  : [Hossam Hilal] (https://www.facebook.com/hossam.hilal0) <br />
-Behance   : [Hossam Hilal] (https://www.behance.net/hossam-hilal) <br />
-Email     : [Hossam Hilal] (hossam.hilal0@gmail.com) <br />
+Github &nbsp; &nbsp; &nbsp; &nbsp;  : &nbsp; [Hossam Hilal](https://github.com/hossamhilal) <br />
+Npm&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; [Hossam Hilal](https://www.npmjs.com/~hossam_hilal) <br />
+Linkedin &nbsp; &nbsp;  &nbsp;  : &nbsp; [Hossam Hilal](https://www.linkedin.com/in/hossam-hilal) <br />
+Facebook &nbsp; &nbsp;  : &nbsp; [Hossam Hilal](https://www.facebook.com/hossam.hilal0) <br />
+Behance &nbsp; &nbsp; &nbsp; : &nbsp; [Hossam Hilal](https://www.behance.net/hossam-hilal) <br />
+Email  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &nbsp; [Hossam Hilal](mailto:hossam.hilal0@gmail.com) <br />
 
 
 
