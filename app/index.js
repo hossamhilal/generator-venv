@@ -115,12 +115,12 @@ module.exports = class extends Generator {
                         name: 'Modernizr',
                         value: 'includeModernizr',
                         checked: false
-                    },
-                    {
-                        name: 'GoogleAnalytics',
-                        value: 'includeAnalytics',
-                        checked: false
                     }
+                    // ,{
+                    //     name: 'GoogleAnalytics',
+                    //     value: 'includeAnalytics',
+                    //     checked: false
+                    // }
                 ]
             },
             {
