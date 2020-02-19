@@ -116,11 +116,6 @@ module.exports = class extends Generator {
                         value: 'includeModernizr',
                         checked: false
                     }
-                    // ,{
-                    //     name: 'GoogleAnalytics',
-                    //     value: 'includeAnalytics',
-                    //     checked: false
-                    // }
                 ]
             },
             {
@@ -202,7 +197,7 @@ module.exports = class extends Generator {
         // Message 
         var message = chalk.yellow('Welcome To Yo ') + 
                       chalk.magenta.bold.underline(' Venv Generator ') + 
-                      chalk.yellow(' First Developed Generator ');
+                      chalk.yellow(' Developed By : Hossam Hilal ');
         this.log(yosay(message, {
             maxLength: 17
         })); 

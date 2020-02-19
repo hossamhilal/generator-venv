@@ -1,6 +1,6 @@
 {
   "name": "generator-venv",
-  "version": "2.0.1",
+  "version": "2.2.2",
   "description": "a generator to create vue environment ",
   "main": "index.js",
   "scripts": {
